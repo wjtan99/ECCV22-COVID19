@@ -10,13 +10,13 @@ Recreate the Pytorch-1.7 Anaconda container enviroment by running conda install 
 ## Dataset preparation
 Follow the instructions in preprocessing and segmentation to prepare the dataset 
 
-## Traing on First-Stage 3D-CNN-BERT  
+## Train First-Stage 3D-CNN-BERT  
 python train.py --split=1 --arch=rgb_r2plus1d_32f_34_bert10  --workers=8 --batch-size=4 --iter-size=16 --print-freq=100 --dataset=covid --dataset_root=/media/ubuntu/MyHDataStor3/datasets/COV19D  --lr=1e-5
 
 The data generator is defined in dataset/covid.py 
 Set the dataset_root to your own root directory where datasets are saved.  
 
-## Traing on Second-Stage BERT on Extracted Features   
+## Train Second-Stage BERT on Extracted Features   
 python train_feature.py --split=1 --arch=feature_bert10 --workers=8 --batch-size=32 --iter-size=16 --print-freq=100 --dataset=covid2 --dataset_root=/media/ubuntu/MyHDataStor3/datasets/COV19D --lr=1e-5
 
 ## Evuation on validation dataset  
